@@ -1,0 +1,4 @@
+[15-Oct-2024 03:27:06 UTC] PHP Warning:  mysqli_real_connect(): php_network_getaddresses: getaddrinfo for mysql failed: Temporary failure in name resolution in /var/www/wp-includes/class-wpdb.php on line 1982
+[15-Oct-2024 03:27:06 UTC] PHP Warning:  mysqli_real_connect(): (HY000/2002): php_network_getaddresses: getaddrinfo for mysql failed: Temporary failure in name resolution in /var/www/wp-includes/class-wpdb.php on line 1982
+[15-Oct-2024 03:27:06 UTC] PHP Warning:  mysqli_real_connect(): php_network_getaddresses: getaddrinfo for mysql failed: Temporary failure in name resolution in /var/www/wp-includes/class-wpdb.php on line 1982
+[15-Oct-2024 03:27:06 UTC] PHP Warning:  mysqli_real_connect(): (HY000/2002): php_network_getaddresses: getaddrinfo for mysql failed: Temporary failure in name resolution in /var/www/wp-includes/class-wpdb.php on line 1982

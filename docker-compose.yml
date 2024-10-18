@@ -1,0 +1,53 @@
+version: "3"
+services:
+
+  # NGINX
+  nginx:
+    build:
+      context: ./
+      dockerfile: ./.docker/nginx.docker
+    ports: 
+      - "80:80"            
+    networks:
+      - internal
+    volumes:
+      - ./:/var/www
+      - ./storage/docker/logs/nginx:/var/log/nginx/    
+    links:
+      - php
+    depends_on:
+      - php
+    restart: always
+
+  # PHP 8.3
+  php:
+    build:
+      context: ./
+      dockerfile: ./.docker/php.docker
+    networks:
+      - internal
+    volumes:
+      - ./:/var/www
+      - ./storage/docker/logs/fpm-php:/var/log/fpm-php.www.log    
+    expose:
+      - "9000"
+    restart: always
+  
+  # MYSQL
+  mysql:
+    image: mysql:8.0
+    platform: linux/x86_64
+    ports:
+      - "3306:3306"     
+    environment:      
+      MYSQL_USER: 'wordpress'
+      MYSQL_PASSWORD: 'secret'
+      MYSQL_ROOT_PASSWORD: 'secret'
+    volumes:
+      - ./storage/docker/mysql:/var/lib/mysql
+    networks:
+      - internal
+
+networks:
+  internal:
+
